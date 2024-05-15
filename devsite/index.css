@@ -1,0 +1,55 @@
+body {
+    padding: 3rem;
+}
+
+.eventContainer {
+    flex-direction: column,
+}
+
+#header {
+    border-radius: 0.25rem;
+    border: 2px solid black;
+    padding: 1rem;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    z-index: 1039;
+    height: 12rem;
+    align-items: stretch;
+}
+#top, #events {
+    border-radius: 0.25rem;
+    border: 2px solid black;
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+#top {
+    max-width: 50vw;
+}
+#events {
+    min-width: 35vw;
+}
+#spacer {
+    height: 12rem;
+}
+
+
+.dds__divider {
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 5rem;
+}
+
+.ddsc__card--container {
+    width: 320px;
+    .dds__card {
+        height: 420px;
+    }
+}
+
+.ddsc__link {
+    color: mediumblue !important;
+    cursor: pointer;
+    text-decoration: underline !important;
+}

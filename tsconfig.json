@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": false,
+        "module": "es6",
+        "target": "es5",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "jsx": "react",
+        "esModuleInterop": true,
+        "sourceMap": true
+    },
+    "include": [
+        "webpack.config.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
