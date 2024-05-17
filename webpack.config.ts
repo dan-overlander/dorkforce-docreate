@@ -10,12 +10,7 @@ const __dirname = fs.realpathSync(process.cwd());
 const config: webpack.Configuration = {
     entry: "./src/index.ts",
     externals: {
-        "@dds/components": {
-            root: "DDS",
-            commonjs2: "@dds/components",
-            commonjs: "@dds/components",
-            amd: "@dds/components",
-        },
+        "@dds/components": "DDS"
     },
     mode: "development", // "development" | "production" | "none"
     module: {
@@ -37,10 +32,13 @@ const config: webpack.Configuration = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        library: 'DCR',
-        libraryTarget: 'umd',
-        globalObject: 'this',
+        library: {
+            type: 'module'
+        },
         filename: "[name].js",
+    },
+    experiments: {
+        outputModule: true
     },
     plugins: [
         new NodePolyfillPlugin(), // This plugin polyfills Node.js core modules
