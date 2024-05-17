@@ -1,6 +1,4 @@
 import { sortArrayOfObjects, generateData, make } from "./dodata.js";
-const doCreate = { ...DCR.default };
-console.log(doCreate);
 
 // The mockServerAPI simulates a server call that returns an object containing data and totalItems
 // In this code, data and totalItems are mocked to show an example of the returned object
@@ -13,7 +11,7 @@ const mockServerAPI = ({ currentPage, pageSize, sort }) => {
 
         for (let i = 0; i < pageSize; i++) {
             data.push({
-                columns: [{ value: Math.round(Math.random() * 100000) }, { value: doCreate.id(`Gremgoblin`) }, { value: "02/16/2023" }, { value: doCreate.id(`Gravi-Team`) }],
+                columns: [{ value: Math.round(Math.random() * 100000) }, { value: DCR.id(`Gremgoblin`) }, { value: "02/16/2023" }, { value: DCR.id(`Gravi-Team`) }],
             });
         }
 
@@ -49,22 +47,22 @@ const handleScroll = (element) => {
     });
 };
 const usageHeader = (title) => {
-    doCreate.add(`<a id="anchor-${title.toLowerCase()}">`);
-    doCreate.add(`<hr class="dds__divider" />${title}`);
+    DCR.add(`<a id="anchor-${title.toLowerCase()}">`);
+    DCR.add(`<hr class="dds__divider" />${title}`);
 };
 const usage = {
     icon: () => {
         usageHeader(`Icon`);
 
-        // icon definition -- you CAN do this, or you can have it done for you on demand when you run doCreate.icon (or doCreate.add, method:icon)
-        doCreate.iconDef({
+        // icon definition -- you CAN do this, or you can have it done for you on demand when you run DCR.icon (or DCR.add, method:icon)
+        DCR.iconDef({
             icon: `dds__icon--upload`,
             callback: (svgRes) => {
                 // console.log(svgRes);
             }
         });
 
-        doCreate.class.add(`
+        DCR.class.add(`
         .ddsc__icon {
             color: blue;
             transform: scale(2.5);
@@ -72,7 +70,7 @@ const usage = {
             left: 33vw;
         }`);
 
-        const myIcon = doCreate.add({
+        const myIcon = DCR.add({
             method: `icon`,
             options: {
                 id: `mycloud`,
@@ -83,13 +81,13 @@ const usage = {
     },
     accordion: () => {
         usageHeader(`Accordion`);
-        const myAccordion = doCreate.add({
+        const myAccordion = DCR.add({
             method: `accordion`,
             options: {
                 items: [{
                     expanded: true,
                     head: `I can't wait for the year 2000!`,
-                    body: doCreate.element(`<p>Like the infinite horizon, it eludes my grasp.`),
+                    body: DCR.element(`<p>Like the infinite horizon, it eludes my grasp.`),
                 }, {
                     head: `Romance By Soos`,
                     body: `<ol>
@@ -119,12 +117,12 @@ const usage = {
             },
         };
 
-        const myActionMenu = doCreate.add({
+        const myActionMenu = DCR.add({
             method: `actionMenu`,
             options: {
                 class: `dds__action-menu--sm`,
                 chevron: true,
-                trigger: doCreate.button({
+                trigger: DCR.button({
                     label: `Pacifica`,
                 }),
                 items: [{
@@ -136,7 +134,7 @@ const usage = {
             }
         });
         [`Gideon`, `Bill`, `.GIFfany`].forEach(ac => {
-            const popAmItem = doCreate.actionMenuItem({
+            const popAmItem = DCR.actionMenuItem({
                 label: ac,
                 onclick: handle.action,
             })
@@ -145,9 +143,9 @@ const usage = {
 
 
 
-        const nextAmContainer = doCreate.element(`<div style="border:1px solid red; padding: 1rem;"></div>`);
+        const nextAmContainer = DCR.element(`<div style="border:1px solid red; padding: 1rem;"></div>`);
         document.body.appendChild(nextAmContainer);
-        const billButton = doCreate.add({
+        const billButton = DCR.add({
             method: `button`,
             parent: nextAmContainer,
             options: {
@@ -161,7 +159,7 @@ const usage = {
                 },
             },
         });
-        const billActionMenu = doCreate.add({
+        const billActionMenu = DCR.add({
             method: `actionMenu`,
             options: {
                 id: `productMenu`,
@@ -179,11 +177,11 @@ const usage = {
         });
 
 
-        const iconActionMenu = doCreate.add({
+        const iconActionMenu = DCR.add({
             method: `actionMenu`,
             options: {
                 id: `amIconMenu`,
-                trigger: doCreate.add({
+                trigger: DCR.add({
                     method: `button`,
                     options: {
                         id: `amIconButton`,
@@ -206,7 +204,7 @@ const usage = {
     },
     badge: () => {
         usageHeader(`Badge`);
-        const myBadge = doCreate.add({
+        const myBadge = DCR.add({
             method: `badge`,
             options: {
                 label: `👕`
@@ -215,7 +213,7 @@ const usage = {
     },
     blockquote: () => {
         usageHeader(`Blockquote`);
-        const myBlockquote1 = doCreate.add({
+        const myBlockquote1 = DCR.add({
             method: `blockquote`,
             options: {
                 quote: `Wait! Don't go! Grenda, was it? I must speak with you. There's something about you, I can't get you out of my head. You're so bold and confident! I know you're probably out of my league, but, might I give you mein phone number?`,
@@ -223,7 +221,7 @@ const usage = {
                 class: `dds__blockquote--end`,
             }
         });
-        const myBlockquote2 = doCreate.add({
+        const myBlockquote2 = DCR.add({
             method: `blockquote`,
             options: {
                 quote: ``,
@@ -234,7 +232,7 @@ const usage = {
     },
     breadcrumb: () => {
         usageHeader(`Breadcrumb`);
-        const myBreadcrumb = doCreate.add({
+        const myBreadcrumb = DCR.add({
             method: `breadcrumb`,
             options: {
                 items: [`USA`, `Upper Northwest`, `Oregon`, `Gravity Falls`, `Mystery Shack`],
@@ -243,7 +241,7 @@ const usage = {
     },
     button: () => {
         usageHeader(`Button`);
-        const myButton = doCreate.add({
+        const myButton = DCR.add({
             method: `button`,
             options: {
                 label: `Smile Dip`,
@@ -255,14 +253,14 @@ const usage = {
                 }
             }
         });
-        const myButton2 = doCreate.add({
+        const myButton2 = DCR.add({
             method: `button`,
             options: {
                 label: `Paper Jam Dipper`,
                 disabled: true,
             }
         });
-        const myButton3PairsWithMyModal2 = doCreate.add({
+        const myButton3PairsWithMyModal2 = DCR.add({
             method: `button`,
             options: {
                 id: `buttonWithChevron`,
@@ -274,7 +272,7 @@ const usage = {
                 },
             }
         });
-        const myIconButton = doCreate.add({
+        const myIconButton = DCR.add({
             method: `button`,
             options: {
                 icon: `airplane`,
@@ -283,7 +281,7 @@ const usage = {
                 }
             }
         });
-        const myIconButton2 = doCreate.add({
+        const myIconButton2 = DCR.add({
             method: `button`,
             options: {
                 label: `eyebat`,
@@ -296,35 +294,35 @@ const usage = {
     },
     card: () => {
         usageHeader(`Card`);
-        doCreate.add(`<div id="cards" class="dds__container">
+        DCR.add(`<div id="cards" class="dds__container">
 <div class="dds__row">
 </div>
 </div>`);
-        doCreate.add({
+        DCR.add({
             method: `<div class="dds__col--1 dds__col--sm-3 dds__col--md-6 dds__mb-3">
 <div id="putCard1Here" class="ddsc__card--container"></div>
 </div>`,
             parent: `#cards .dds__row`
         });
-        doCreate.add({
+        DCR.add({
             method: `<div class="dds__col--1 dds__col--sm-3 dds__col--md-6 dds__mb-3">
 <div id="putCard2Here" class="ddsc__card--container"></div>
 </div>`,
             parent: `#cards .dds__row`
         });
-        const myCard1 = doCreate.add({
+        const myCard1 = DCR.add({
             method: `card`,
             parent: document.getElementById(`putCard1Here`),
             options: {
                 id: `cardOne`,
-                media: doCreate.element(`<img src="https://assets.codepen.io/434262/Cipher_Hunt_Alex_Hirsch_Bill_Cipher_Statue.webp" alt="Cipher Hunt" class="dds__card__media__item">`),
+                media: DCR.element(`<img src="https://assets.codepen.io/434262/Cipher_Hunt_Alex_Hirsch_Bill_Cipher_Statue.webp" alt="Cipher Hunt" class="dds__card__media__item">`),
                 title: `Cipher Hunt`,
                 icon: `pin`,
                 body: `Cipher Hunt was an ARG (alternate reality game) about Gravity Falls, created by series creator Alex Hirsch.`,
-                footer: doCreate.element(`<a href="https://gravityfalls.fandom.com/wiki/Cipher_Hunt" target="_blank">Read more on Fandom</a>`),
+                footer: DCR.element(`<a href="https://gravityfalls.fandom.com/wiki/Cipher_Hunt" target="_blank">Read more on Fandom</a>`),
             },
         });
-        const myCard2 = doCreate.add({
+        const myCard2 = DCR.add({
             method: `card`,
             parent: document.getElementById(`putCard2Here`),
             options: {
@@ -349,7 +347,7 @@ const usage = {
         usageHeader(`LoadingIndicator`);
 
         // full page loader
-        const myLoadingIndicator = doCreate.add({
+        const myLoadingIndicator = DCR.add({
             method: `loadingIndicator`,
             options: {
                 label: `There's a perfectly logical explanation.`,
@@ -361,7 +359,7 @@ const usage = {
         }, 250);
 
         // button loader
-        const disablingButton = doCreate.add({ // must add a loading indicator to the button; see myLoad2
+        const disablingButton = DCR.add({ // must add a loading indicator to the button; see myLoad2
             method: `button`,
             options: {
                 label: `"The Hide-Behind"`,
@@ -373,7 +371,7 @@ const usage = {
                 },
             }
         });
-        const myLoad2 = doCreate.add({
+        const myLoad2 = DCR.add({
             method: `loadingIndicator`,
             options: {
                 id: `disableButtonLoader`,
@@ -382,7 +380,7 @@ const usage = {
         });
 
         // skeleton loader; going to use cardOne for this
-        const togglingButton = doCreate.add({
+        const togglingButton = DCR.add({
             method: `button`,
             options: {
                 label: `Let the Globnar BEGIN!`,
@@ -394,7 +392,7 @@ const usage = {
                 },
             },
         });
-        const myLoad3 = doCreate.add({
+        const myLoad3 = DCR.add({
             method: `loadingIndicator`,
             options: {
                 id: `cardOneLoader`,
@@ -407,7 +405,7 @@ const usage = {
     },
     carousel: () => {
         usageHeader(`Carousel`);
-        doCreate.class.add(`
+        DCR.class.add(`
 .custom__carousel-example--basic__media {
 width: 100%;
 height: 100%;
@@ -415,19 +413,19 @@ object-fit: cover;
 background-color: rgba(0, 0, 0, 0.025);
 }`);
         const newContainer = () => {
-            const container = doCreate.element(`<div class="dds__container dds__p-0">`);
-            container.row = doCreate.element(`<div class="dds__row">`);
-            container.row.col01 = doCreate.element(`<div class="dds__col--1 dds__col--sm-3">
+            const container = DCR.element(`<div class="dds__container dds__p-0">`);
+            container.row = DCR.element(`<div class="dds__row">`);
+            container.row.col01 = DCR.element(`<div class="dds__col--1 dds__col--sm-3">
                 <h5 class="dds__h2 dds__mb-3">${make.title()}</h5>
             </div>`);
-            container.row.col01.body = doCreate.element(`<p class="dds__body-2 dds__mb-4">${make.phrase(40)}.</p>`);
-            container.row.col01.footer = doCreate.element(`<div class="dds__mb-4">`);
-            container.row.col01.footer.cta = doCreate.button({
+            container.row.col01.body = DCR.element(`<p class="dds__body-2 dds__mb-4">${make.phrase(40)}.</p>`);
+            container.row.col01.footer = DCR.element(`<div class="dds__mb-4">`);
+            container.row.col01.footer.cta = DCR.button({
                 class: `dds__button--sm`,
                 label: make.title(),
             });
-            container.row.col02 = doCreate.element(`<div class="dds__col--1 dds__col--sm-3">`);
-            container.row.col02.image = doCreate.element(`<img
+            container.row.col02 = DCR.element(`<div class="dds__col--1 dds__col--sm-3">`);
+            container.row.col02.image = DCR.element(`<img
                 src="https://i.dell.com/sites/csimages/Learn_Imagery/all/565x363-services-splitter-3.jpg"
                 eager=""
                 fetchpriority="high"
@@ -449,12 +447,12 @@ background-color: rgba(0, 0, 0, 0.025);
         };
         const newCard = () => {
             const body = {};
-            body.card = doCreate.card({
-                media: doCreate.element(`<img src="https://picsum.photos/id/${make.number(0, 999)}/400/220" alt="${make.title()}" class="dds__card__media__item">`),
+            body.card = DCR.card({
+                media: DCR.element(`<img src="https://picsum.photos/id/${make.number(0, 999)}/400/220" alt="${make.title()}" class="dds__card__media__item">`),
                 title: make.title(),
                 icon: `pin`,
                 body: make.phrase(12),
-                footer: doCreate.element(`<a href="#" target="_blank">${make.phrase(3)}</a>`),
+                footer: DCR.element(`<a href="#" target="_blank">${make.phrase(3)}</a>`),
             });
             return body.card;
         };
@@ -465,7 +463,7 @@ background-color: rgba(0, 0, 0, 0.025);
             });
         }
 
-        let carousel00 = doCreate.add({
+        let carousel00 = DCR.add({
             method: `carousel`,
             options: {
                 items,
@@ -475,7 +473,7 @@ background-color: rgba(0, 0, 0, 0.025);
             },
         });
 
-        let carousel01 = doCreate.add({
+        let carousel01 = DCR.add({
             method: `carousel`,
             options: {
                 items: [{
@@ -493,7 +491,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     checkbox: () => {
         usageHeader(`Checkbox`);
-        const myCheckbox1 = doCreate.add({
+        const myCheckbox1 = DCR.add({
             method: `checkbox`,
             options: {
                 label: `I think we just found our loophole!`,
@@ -502,7 +500,7 @@ background-color: rgba(0, 0, 0, 0.025);
             }
         });
         myCheckbox1.indeterminate(true);
-        const myCheckbox2 = doCreate.add({
+        const myCheckbox2 = DCR.add({
             method: `checkbox`,
             options: {
                 id: `Mabel`,
@@ -517,7 +515,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     datepicker: () => {
         usageHeader(`Datepicker`);
-        const myDatePicker = doCreate.add({
+        const myDatePicker = DCR.add({
             method: `datePicker`,
             options: {
                 label: `Pines Birthday`,
@@ -526,7 +524,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     drawer: () => {
         usageHeader(`Drawer`);
-        const myDrawer = doCreate.add({
+        const myDrawer = DCR.add({
             method: `drawer`,
             ddsOptions: {
                 width: `500px`,
@@ -539,29 +537,29 @@ background-color: rgba(0, 0, 0, 0.025);
                     title: `Disclaimer`,
                     subtitle: `No responsibilities taken`,
                 },
-                body: doCreate.element(`<p>"Mr. Mystery does not assume liability for disappointment, strange rashes, or accidental plunges into the Bottomless pit. Visitors may experience loss of vision, loss of balance, loss of children, or loss of wallet. Please do not look Mr. Mystery directly in the eye. Not responsible for uncontrolled fits of rage or fits of pants. Remember to tip your waitress. In the event of no waitress, remember to tip your Mr. Mystery. In the even [sic] of no tip, you will be escorted from the premises. Kids’ admission $30 because they smell bad and that one keeps doing that weird thing with his legs. Side effects may include existential quandaries and sudden moral relativism."</p>`),
-                footer: doCreate.button({
+                body: DCR.element(`<p>"Mr. Mystery does not assume liability for disappointment, strange rashes, or accidental plunges into the Bottomless pit. Visitors may experience loss of vision, loss of balance, loss of children, or loss of wallet. Please do not look Mr. Mystery directly in the eye. Not responsible for uncontrolled fits of rage or fits of pants. Remember to tip your waitress. In the event of no waitress, remember to tip your Mr. Mystery. In the even [sic] of no tip, you will be escorted from the premises. Kids’ admission $30 because they smell bad and that one keeps doing that weird thing with his legs. Side effects may include existential quandaries and sudden moral relativism."</p>`),
+                footer: DCR.button({
                     label: `Soos?`,
                     onclick: (() => {
                         myDrawer.body.clearChildren();
                         myDrawer.title.set(`"Give it up, dudes! Your fighting only makes us look more rad!"`);
-                        myDrawer.footer.appendChild(doCreate.element(`<span>Yes, I am a soos!</span>`));
+                        myDrawer.footer.appendChild(DCR.element(`<span>Yes, I am a soos!</span>`));
                     })
                 })
             }
         });
-        const manualTrigger = doCreate.add({
+        const manualTrigger = DCR.add({
             method: `button`,
             options: {
                 class: `dds__button--sm ddsc__button--bot`,
                 id: `consoleTrigger`,
-                label: doCreate.icon({
+                label: DCR.icon({
                     icon: `clipboard-notes`,
                     type: `font`,
                 }).outerHTML,
             },
         });
-        const myDrawer2 = doCreate.add({
+        const myDrawer2 = DCR.add({
             method: `drawer`,
             options: {
                 id: `myDrawer2`,
@@ -569,13 +567,13 @@ background-color: rgba(0, 0, 0, 0.025);
                 labels: {
                     title: `The Stanchurian Candidate`,
                 },
-                body: doCreate.element(`<p>"Good! He's saying all the right things!" —America guy</p>`),
+                body: DCR.element(`<p>"Good! He's saying all the right things!" —America guy</p>`),
             }
         });
     },
     dropdown: () => {
         usageHeader(`Dropdown`);
-        const myDropdown = doCreate.add({
+        const myDropdown = DCR.add({
             method: `dropdown`,
             options: {
                 maxlength: 0,
@@ -591,13 +589,13 @@ background-color: rgba(0, 0, 0, 0.025);
             },
         });
         [`Puppeteer`, `Mermen`].forEach(pdi => {
-            const popDropItem = doCreate.dropdownItem({
+            const popDropItem = DCR.dropdownItem({
                 label: pdi,
             })
             myDropdown.element.appendChild(popDropItem);
         });
 
-        const myDropdown2 = doCreate.add({
+        const myDropdown2 = DCR.add({
             method: `dropdown`,
             ddsOptions: {
                 selection: "multiple", selectAll: true
@@ -629,7 +627,7 @@ background-color: rgba(0, 0, 0, 0.025);
     fileInput: () => {
         usageHeader(`FileInput`);
 
-        const myFileInput = doCreate.add({
+        const myFileInput = DCR.add({
             method: `fileInput`,
             options: {
                 labels: {
@@ -640,17 +638,17 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     footnote: () => {
         usageHeader(`Footnote`);
-        doCreate.add(`<span>In 2002, Blubs was the county Sheriff and had a large afro.</span>`);
-        const myFootnote1 = doCreate.add({
+        DCR.add(`<span>In 2002, Blubs was the county Sheriff and had a large afro.</span>`);
+        const myFootnote1 = DCR.add({
             method: `footnote`,
             options: {
                 root: `#footnotes`,
                 note: ` "Blendin's Game." Jeff Rowe, Alex Hirsch (writers) & Matt Braly (director). Gravity Falls. Disney XD. November 10, 2014. No. 8, season 2.`,
             },
         });
-        doCreate.add(`<div>`);
-        doCreate.add(`<span>Exodus demonus, spookus-scareus. Ain'tafraidus Noghostus.</span>`);
-        const myFootnote2 = doCreate.add({
+        DCR.add(`<div>`);
+        DCR.add(`<span>Exodus demonus, spookus-scareus. Ain'tafraidus Noghostus.</span>`);
+        const myFootnote2 = DCR.add({
             method: `footnote`,
             options: {
                 root: `#footnotes`,
@@ -661,13 +659,13 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     form: () => {
         usageHeader(`Form`);
-        doCreate.add({
+        DCR.add({
             method: `form`,
             options: {
                 id: `theForm`,
             }
         });
-        doCreate.add({
+        DCR.add({
             parent: document.getElementById(`theForm`),
             method: `fieldset`,
             options: {
@@ -677,7 +675,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     link: () => {
         usageHeader(`Link`);
-        const myList = doCreate.add({
+        const myList = DCR.add({
             method: `link`,
             options: {
                 label: make.quote({ sentences: 1 }),
@@ -688,7 +686,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     list: () => {
         usageHeader(`List`);
-        const myList = doCreate.add({
+        const myList = DCR.add({
             method: `list`,
             options: {
                 class: `dds__list--unstyled`,
@@ -703,7 +701,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     messageBar: () => {
         usageHeader(`MessageBar`);
-        const myMessageBar = doCreate.add({
+        const myMessageBar = DCR.add({
             method: `messageBar`,
             // parent: `#top`,
             options: {
@@ -716,7 +714,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     modal: () => {
         usageHeader(`Modal`);
-        const myModal = doCreate.add({
+        const myModal = DCR.add({
             method: `modal`,
             options: {
                 id: `goatPig`,
@@ -724,8 +722,8 @@ background-color: rgba(0, 0, 0, 0.025);
                     trigger: `Goat and a pig`,
                     title: `Waddles and Gompers`
                 },
-                body: doCreate.element(`<p>A couple of livestock, livin' the life, stuck together in harmony. A pig and a goat, showing the world that a pig and a goat can be family. Love so strong, love so big, such a beautiful. Goat and a pig. Bound in matrimony now and forever. Shopping for groceries and buying a condo and filing their taxes together. Goat and a pig, goooooat and a pig!</p>`),
-                footer: doCreate.button({
+                body: DCR.element(`<p>A couple of livestock, livin' the life, stuck together in harmony. A pig and a goat, showing the world that a pig and a goat can be family. Love so strong, love so big, such a beautiful. Goat and a pig. Bound in matrimony now and forever. Shopping for groceries and buying a condo and filing their taxes together. Goat and a pig, goooooat and a pig!</p>`),
+                footer: DCR.button({
                     label: `Oink`,
                     onclick: (() => {
                         myModal.close();
@@ -733,13 +731,13 @@ background-color: rgba(0, 0, 0, 0.025);
                 })
             }
         });
-        const manualModalTrigger = doCreate.add({
+        const manualModalTrigger = DCR.add({
             method: `button`,
             options: {
                 label: `CRAY CRAY`
             }
         });
-        const manualModal = doCreate.add({
+        const manualModal = DCR.add({
             method: `modal`,
             options: {
                 class: `dds__modal--lg`,
@@ -754,12 +752,12 @@ background-color: rgba(0, 0, 0, 0.025);
                 trigger: manualModalTrigger,
                 onclick: () => {
                     setTimeout(() => {
-                        manualModal.appendChild(doCreate.element(`<p style="margin-top:1rem;">You been danced at, yo!`));
+                        manualModal.appendChild(DCR.element(`<p style="margin-top:1rem;">You been danced at, yo!`));
                     }, 1250);
                 }
             }
         })
-        const myModal2 = doCreate.add({
+        const myModal2 = DCR.add({
             method: `modal`,
             options: {
                 id: `linksWithMyButton3`,
@@ -767,21 +765,21 @@ background-color: rgba(0, 0, 0, 0.025);
                 labels: {
                     title: `Waddles and Gompers`
                 },
-                body: doCreate.element(`<p>A couple of livestock, livin' the life, stuck together in harmony. A pig and a goat, showing the world that a pig and a goat can be family. Love so strong, love so big, such a beautiful. Goat and a pig. Bound in matrimony now and forever. Shopping for groceries and buying a condo and filing their taxes together. Goat and a pig, goooooat and a pig!</p>`),
+                body: DCR.element(`<p>A couple of livestock, livin' the life, stuck together in harmony. A pig and a goat, showing the world that a pig and a goat can be family. Love so strong, love so big, such a beautiful. Goat and a pig. Bound in matrimony now and forever. Shopping for groceries and buying a condo and filing their taxes together. Goat and a pig, goooooat and a pig!</p>`),
             }
         });
     },
     moreLess: () => {
         usageHeader(`MoreLess`);
-        const myMoreLess = doCreate.add({
+        const myMoreLess = DCR.add({
             method: `moreLess`,
             options: {
                 label: `Oh No She Di'nt`,
                 body: `features a woman in a purple dress and tan belt in a sassy pose on a green DVD case. The title of the movie appears on the cover as if she's speaking, in the form of a word balloon. The top of the spine also has a purple "W."`,
             },
         });
-        document.body.appendChild(doCreate.element(`<hr />`));
-        const myMoreLess2 = doCreate.add({
+        document.body.appendChild(DCR.element(`<hr />`));
+        const myMoreLess2 = DCR.add({
             method: `moreLess`,
             options: {
                 labels: {
@@ -789,7 +787,7 @@ background-color: rgba(0, 0, 0, 0.025);
                     less: `Pay $50 to get out`,
                 },
                 type: `list`,
-                body: doCreate.element(`<ol class="dds__more-less__target">
+                body: DCR.element(`<ol class="dds__more-less__target">
         <li><span>Wax Sherlock Holmes</span></li>
         <li><span>Wax Larry King</span></li>
         <li><span>Wax Coolio</span></li>
@@ -807,8 +805,8 @@ background-color: rgba(0, 0, 0, 0.025);
       </ol>`),
             }
         });
-        document.body.appendChild(doCreate.element(`<hr />`));
-        const myMoreLess3 = doCreate.add({
+        document.body.appendChild(DCR.element(`<hr />`));
+        const myMoreLess3 = DCR.add({
             method: `moreLess`,
             options: {
                 type: `bottom`,
@@ -817,8 +815,8 @@ background-color: rgba(0, 0, 0, 0.025);
                 body: `First is the exit to the back porch. The second is a door that leads to a hallway past the stairs. The third is the doorway to the living room. And the fourth is a doorway to the kitchen directly in front of the stairs.`,
             },
         });
-        document.body.appendChild(doCreate.element(`<hr />`));
-        const myMoreLess4 = doCreate.add({
+        document.body.appendChild(DCR.element(`<hr />`));
+        const myMoreLess4 = DCR.add({
             method: `moreLess`,
             options: {
                 type: `inline`,
@@ -830,16 +828,16 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     notification: () => {
         usageHeader(`Notification`);
-        const myNotification = doCreate.add({
+        const myNotification = DCR.add({
             method: `notification`,
             options: {
                 title: `Melody`,
                 close: true,
                 // open: true, // different than "close"
-                messageBody: doCreate.element(`<div>Hoo-Ha Owl's Pizzamatronic Jamboree</div>`),
+                messageBody: DCR.element(`<div>Hoo-Ha Owl's Pizzamatronic Jamboree</div>`),
             },
         });
-        const notiShow = doCreate.add({
+        const notiShow = DCR.add({
             method: `button`,
             options: {
                 label: `Show`,
@@ -848,7 +846,7 @@ background-color: rgba(0, 0, 0, 0.025);
                 }
             }
         });
-        const notiHide = doCreate.add({
+        const notiHide = DCR.add({
             method: `button`,
             options: {
                 label: `Hide`,
@@ -860,35 +858,35 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     popover: () => {
         usageHeader(`Popover`);
-        const myPopoverTrigger = doCreate.add({
+        const myPopoverTrigger = DCR.add({
             method: `button`,
             options: {
                 label: `Beep. Boop.`,
             }
         });
-        const myPopover = doCreate.add({
+        const myPopover = DCR.add({
             method: `popover`,
             options: {
                 trigger: `#${myPopoverTrigger.id}`,
                 callback: (popoverBody) => {
-                    popoverBody.appendChild(doCreate.element(`<span >I am a nerd robot.</span>`));
+                    popoverBody.appendChild(DCR.element(`<span >I am a nerd robot.</span>`));
                 },
             }
         });
-        const mySecondPopover = doCreate.add({
+        const mySecondPopover = DCR.add({
             method: `popover`,
             options: {
-                trigger: doCreate.add({
+                trigger: DCR.add({
                     method: `button`,
                     options: { label: `Soos, it's three in the morning` }
                 }),
                 body: `Okay, okay, so it turns out that the second Stan, the Stan that, we know, was actually, Stanley but the first Stan, was Stanford, but we didn't know, until, that Stanford came out of the portal, which was built by Stanford, but then Stanley pretended to be Stanford, he, did the portal, cause he's Stan, but he's not Stan.`
             }
         });
-        const trigger3 = doCreate.button({
+        const trigger3 = DCR.button({
             label: `Sock Opera`,
         });
-        const pop3 = doCreate.popover({
+        const pop3 = DCR.popover({
             trigger: `#${trigger3.id}`,
             title: `That wet sandwich does look delicious`,
             body: make.quote(),
@@ -897,7 +895,7 @@ background-color: rgba(0, 0, 0, 0.025);
         document.querySelector(`body`).appendChild(pop3);
         DDS.Popover(pop3);
 
-        const TriggerlessPopover = doCreate.add({
+        const TriggerlessPopover = DCR.add({
             method: `popover`,
             options: {
                 body: make.quote()
@@ -907,7 +905,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     progressBar: () => {
         usageHeader(`ProgressBar`);
-        const indeterminate = doCreate.add({
+        const indeterminate = DCR.add({
             method: `progressBar`,
             options: {
                 class: `dds__progress-bar--indeterminate`,
@@ -915,7 +913,7 @@ background-color: rgba(0, 0, 0, 0.025);
                 helper: `My advice: stay at the top and don't fall in.`,
             }
         });
-        const myProgress = doCreate.add({
+        const myProgress = DCR.add({
             method: `progressBar`,
             options: {
                 label: `Who is The Author?`,
@@ -957,7 +955,7 @@ background-color: rgba(0, 0, 0, 0.025);
             summary: make.phrase(3),
             active: false,
         },];
-        const myProgressTracker = doCreate.add({
+        const myProgressTracker = DCR.add({
             method: `progressTracker`,
             options: {
                 items
@@ -994,7 +992,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     radioButton: () => {
         usageHeader(`RadioButton`);
-        doCreate.add({
+        DCR.add({
             method: `radioButton`,
             options: {
                 buttons: [{
@@ -1011,9 +1009,9 @@ background-color: rgba(0, 0, 0, 0.025);
         });
     },
     sideNav: () => {
-        // sideNav is the one exception where you should not use doCreate.add
+        // sideNav is the one exception where you should not use DCR.add
         usageHeader(`SideNav`);
-        const mySideNav = doCreate.sideNav();
+        const mySideNav = DCR.sideNav();
         mySideNav.addMenu({
             id: `root`,
         });
@@ -1042,7 +1040,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     search: () => {
         usageHeader(`Search`);
-        const mySearch = doCreate.add({
+        const mySearch = DCR.add({
             method: `search`,
             options: {
                 label: `"Little Gift Shop of Horrors"`,
@@ -1051,7 +1049,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     select: () => {
         usageHeader(`Select`);
-        doCreate.add({
+        DCR.add({
             method: `select`,
             options: {
                 label: `Hands Off`,
@@ -1066,7 +1064,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     table: () => {
         usageHeader(`Table`);
-        const myTable = doCreate.add({
+        const myTable = DCR.add({
             method: `table`,
             options: {
                 id: `idTable`,
@@ -1082,7 +1080,7 @@ background-color: rgba(0, 0, 0, 0.025);
                 },
             }
         });
-        const myTable2 = doCreate.add({
+        const myTable2 = DCR.add({
             method: `table`,
             options: {
                 id: `id2Table`,
@@ -1101,7 +1099,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     pagination: () => {
         usageHeader(`Pagination`);
-        const myPagination = doCreate.add({
+        const myPagination = DCR.add({
             method: `pagination`,
             options: {
                 id: `idPagination`,
@@ -1113,7 +1111,7 @@ background-color: rgba(0, 0, 0, 0.025);
                 subscribe: ["idTable"],
             }
         });
-        const secondPagination = doCreate.add({
+        const secondPagination = DCR.add({
             method: `pagination`,
             options: {
                 id: `idPagination`,
@@ -1129,7 +1127,7 @@ background-color: rgba(0, 0, 0, 0.025);
     switch: () => {
         usageHeader(`Switch`);
         let mySwitchState = true;
-        const mySwitch = doCreate.add({
+        const mySwitch = DCR.add({
             method: `switch`,
             options: {
                 label: make.quote({ sentences: 1 }),
@@ -1145,7 +1143,7 @@ background-color: rgba(0, 0, 0, 0.025);
     },
     tabs: () => {
         usageHeader(`Tabs`);
-        let myTabs = doCreate.add({
+        let myTabs = DCR.add({
             method: `tabs`,
             options: {
                 id: `myTabs`,
@@ -1154,7 +1152,7 @@ background-color: rgba(0, 0, 0, 0.025);
                     pane: `I was swimming with my friends, the mighty dolphins, in the Gulf of Mexico, where I was ensnared! ...The cargo was heading for Gravity Falls. Using all my strength, I tried to escape back home, but it was not to be... I would have died from dehydration, were it not for the kindness of the forest animals.`,
                 }, {
                     tab: `Gideon`,
-                    pane: doCreate.element(`<p>The shack is hereby signed over to.. SUCK A LEMON LITTLE MAN?!`),
+                    pane: DCR.element(`<p>The shack is hereby signed over to.. SUCK A LEMON LITTLE MAN?!`),
                     selected: true,
                 }, {
                     tab: `Mabel`,
@@ -1162,7 +1160,7 @@ background-color: rgba(0, 0, 0, 0.025);
                 }],
             },
         });
-        const newTab = doCreate.tabsItem({
+        const newTab = DCR.tabsItem({
             parentId: myTabs.element.id,
             id: `dearestmabel`,
             tab: `Dearest Mabel`,
@@ -1178,18 +1176,18 @@ Love, Lil' Gideon`,
     },
     tag: () => {
         usageHeader(`Tag`);
-        const myTag = doCreate.add({
+        const myTag = DCR.add({
             method: `tag`,
             options: {
                 label: `Grunkle Stan`,
                 dismiss: true,
             }
         });
-        const myTagIcon = doCreate.add({
+        const myTagIcon = DCR.add({
             method: `tag`,
             options: {
                 ariaLabel: `Airplane`,
-                label: doCreate.icon({
+                label: DCR.icon({
                     icon: `airplane`,
                     type: `span`
                 }),
@@ -1198,7 +1196,7 @@ Love, Lil' Gideon`,
     },
     textArea: () => {
         usageHeader(`TextArea`);
-        const myTextArea = doCreate.add({
+        const myTextArea = DCR.add({
             method: `textArea`,
             options: {
                 label: `Society of the Blind Eye`,
@@ -1212,7 +1210,7 @@ Love, Lil' Gideon`,
     },
     textInput: () => {
         usageHeader(`TextInput`);
-        const myTextInput = doCreate.add({
+        const myTextInput = DCR.add({
             method: `textInput`,
             options: {
                 id: `meep`,
@@ -1225,7 +1223,7 @@ Love, Lil' Gideon`,
                 },
             }
         });
-        const myPassword = doCreate.add({
+        const myPassword = DCR.add({
             method: `inputPassword`,
             options: {
                 formField: true,
@@ -1234,7 +1232,7 @@ Love, Lil' Gideon`,
                 value: `Dipper Pines`,
             }
         });
-        const myPhone = doCreate.add({
+        const myPhone = DCR.add({
             method: `inputMask`,
             options: {
                 formField: true,
@@ -1246,7 +1244,7 @@ Love, Lil' Gideon`,
     },
     timePicker: () => {
         usageHeader(`TimePicker`);
-        const myTimePicker = doCreate.add({
+        const myTimePicker = DCR.add({
             method: `timePicker`,
             options: {
                 label: `I am all about that sweet girlfriend label`,
@@ -1260,9 +1258,9 @@ Love, Lil' Gideon`,
     },
     tooltip: () => {
         usageHeader(`Tooltip`);
-        const myTooltipTrigger = doCreate.element(`<a class="dds__mr-3" id="anchor_${doCreate.id()}" href="javascript:void(0);" class="dds__link--standalone">I'll be there with you, brother. Whatever happens--</a>`);
+        const myTooltipTrigger = DCR.element(`<a class="dds__mr-3" id="anchor_${DCR.id()}" href="javascript:void(0);" class="dds__link--standalone">I'll be there with you, brother. Whatever happens--</a>`);
         document.querySelector(`body`).appendChild(myTooltipTrigger);
-        const myTooltip = doCreate.add({
+        const myTooltip = DCR.add({
             method: `tooltip`,
             options: {
                 trigger: myTooltipTrigger,
@@ -1270,7 +1268,7 @@ Love, Lil' Gideon`,
                 tip: `Omigosh! A Pig!`
             }
         });
-        const triggerlessTooltip = doCreate.add({ // autocreates button as needed
+        const triggerlessTooltip = DCR.add({ // autocreates button as needed
             method: `tooltip`,
             options: {
                 tip: `“Songs are like hugs that mouths give to ears!” – Mabel Pines`
@@ -1278,10 +1276,10 @@ Love, Lil' Gideon`,
         });
 
         const triggerId = make.id();
-        const newTrigger = doCreate.element(`<span id="${triggerId}">${make.word()}</span>`);
+        const newTrigger = DCR.element(`<span id="${triggerId}">${make.word()}</span>`);
         document.body.appendChild(newTrigger);
 
-        const manuallyAddedTooltip = doCreate.tooltip({
+        const manuallyAddedTooltip = DCR.tooltip({
             trigger: `#${triggerId}`,
             icon: false,
             tip: make.quote({ sentences: 1 }),
@@ -1294,12 +1292,12 @@ const top = document.getElementById(`top`);
 Object.keys(usage).forEach(key => {
     usage[key]();
     const linkId = `linkto-${key.toLowerCase()}`;
-    top.appendChild(doCreate.element(`<a id="${linkId}" class="ddsc__link" data-target="anchor-${key.toLowerCase()}">${key.toLowerCase()}</a>`))
-    top.appendChild(doCreate.element(`<span> | </span>`));
+    top.appendChild(DCR.element(`<a id="${linkId}" class="ddsc__link" data-target="anchor-${key.toLowerCase()}">${key.toLowerCase()}</a>`))
+    top.appendChild(DCR.element(`<span> | </span>`));
     document.getElementById(linkId).addEventListener(`click`, (e) => {
         handleScroll(document.getElementById(e.target.getAttribute(`data-target`)));
     });
 });
-top.appendChild(doCreate.element(`<span>Total: ${Object.keys(usage).length}`));
-doCreate.add(`<div style="height:5rem;">`);
+top.appendChild(DCR.element(`<span>Total: ${Object.keys(usage).length}`));
+DCR.add(`<div style="height:5rem;">`);
 

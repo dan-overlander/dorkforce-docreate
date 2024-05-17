@@ -116,3 +116,8 @@ const DCR = {
 DCR.add = DCR.add.bind(null, DCR);
 
 export default DCR;
+
+// Conditional global assignment for non-module environments
+if (typeof window !== 'undefined') {
+    (window as any).DCR = DCR;
+}

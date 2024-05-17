@@ -7,12 +7,11 @@ import CompressionPlugin from "compression-webpack-plugin";
 
 const __dirname = fs.realpathSync(process.cwd());
 
-const config: webpack.Configuration = {
+const commonConfig = {
     entry: "./src/index.ts",
     externals: {
-        "@dds/components": "DDS"
+        "@dds/components": "global DDS"
     },
-    mode: "development", // "development" | "production" | "none"
     module: {
         rules: [{ test: /\.tsx?$/, use: "ts-loader", exclude: /node_modules/ }],
     },
@@ -30,16 +29,6 @@ const config: webpack.Configuration = {
             chunks: "async",
         },
     },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        library: {
-            type: 'module'
-        },
-        filename: "[name].js",
-    },
-    experiments: {
-        outputModule: true
-    },
     plugins: [
         new NodePolyfillPlugin(), // This plugin polyfills Node.js core modules
         new CompressionPlugin(),
@@ -55,4 +44,31 @@ const config: webpack.Configuration = {
     },
 };
 
-export default config;
+const esmConfig = {
+    ...commonConfig,
+    output: {
+        path: path.resolve(__dirname, 'dist/esm'),
+        library: {
+            type: 'module'
+        },
+        filename: "[name].js",
+    },
+    experiments: {
+        outputModule: true
+    },
+    mode: "development", // "development" | "production" | "none"
+};
+
+const umdConfig = {
+    ...commonConfig,
+    output: {
+        path: path.resolve(__dirname, 'dist/umd'),
+        library: 'DCR',
+        libraryTarget: 'umd',
+        globalObject: 'this',
+        filename: "[name].umd.js",
+    },
+    mode: "development", // "development" | "production" | "none"
+};
+
+export default [esmConfig, umdConfig];
