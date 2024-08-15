@@ -10,6 +10,9 @@
     },
     "author": "DPCoE",
     "license": "MIT",
+    "publishConfig": {
+        "@dan-overlander:registry": "https://npm.pkg.github.com"
+    },
     "devDependencies": {
         "@dds/components": "^2.41.0",
         "@types/node": "^20.12.12",
