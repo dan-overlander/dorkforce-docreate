@@ -1,6 +1,6 @@
 {
-    "name": "DCR",
-    "version": "1.0.0",
+    "name": "@deepcoe/dcr",
+    "version": "0.0.1",
     "description": "Automatic generation of DDS componentry via javascript",
     "main": "src/index.ts",
     "type": "module",
@@ -10,11 +10,8 @@
     },
     "author": "DPCoE",
     "license": "MIT",
-    "publishConfig": {
-        "@dan-overlander:registry": "https://npm.pkg.github.com"
-    },
     "devDependencies": {
-        "@dds/components": "^2.41.0",
+        "@dds/components": "file:components-2.42.0.tgz",
         "@types/node": "^20.12.12",
         "compression-webpack-plugin": "^11.1.0",
         "crypto-browserify": "^3.12.0",
