@@ -1,4 +1,4 @@
-import Tabs from "@dds/components";
+import { Tabs } from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 

@@ -1,3 +1,4 @@
+import * as DDS from "@dds/components";
 import { doElement } from "./do-element";
 import { capitalize } from "./utils/capitalize";
 
