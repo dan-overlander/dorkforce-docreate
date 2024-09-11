@@ -1,3 +1,4 @@
+import { Notification } from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 import { iconDef } from "./icon-def";
@@ -87,7 +88,7 @@ export const notification = (options: NotificationOptions = {}) => {
         api: {
             show: () => {
                 if (!notification) {
-                    notification = new DDS.Notification(data);
+                    notification = new Notification(data);
                     setTimeout(() => {
                         if (typeof optBody !== 'string') {
                             notification.element.querySelector(`.dds__notification__message`).appendChild(optBody);

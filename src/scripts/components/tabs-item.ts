@@ -1,3 +1,4 @@
+import { Tabs } from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 
@@ -39,7 +40,7 @@ export const tabsItem = (tabInfo) => {
         parentEl.Tabs.tabs.appendChild(li.el);
         parentEl.Tabs.panes.appendChild(pane.el);
         parentEl.Tabs.dispose();
-        parentEl.Tabs = DDS.Tabs(document.getElementById(parentId));
+        parentEl.Tabs = Tabs(document.getElementById(parentId));
     }
 
     return {
