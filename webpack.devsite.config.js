@@ -1,8 +1,5 @@
 import * as path from "path";
 import fs from "fs";
-import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
-import CompressionPlugin from "compression-webpack-plugin";
 
 const __dirname = fs.realpathSync(process.cwd());
 

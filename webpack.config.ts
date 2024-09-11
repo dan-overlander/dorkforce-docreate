@@ -57,7 +57,7 @@ const esmConfig = {
     library: {
       type: "module",
     },
-    filename: "[name].js",
+    filename: "index.js",
   },
   experiments: {
     outputModule: true,
@@ -72,7 +72,7 @@ const umdConfig = {
     library: "DCR",
     libraryTarget: "umd",
     globalObject: "this",
-    filename: "[name].umd.js",
+    filename: "index.umd.js",
   },
 };
 
