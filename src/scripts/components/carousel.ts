@@ -1,4 +1,4 @@
-import { Carousel } from "@dds/components";
+import Carousel from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 import { addApi } from "../utils/add-api";

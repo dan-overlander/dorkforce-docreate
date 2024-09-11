@@ -1,4 +1,4 @@
-import { Notification } from "@dds/components";
+import Notification from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 import { iconDef } from "./icon-def";
