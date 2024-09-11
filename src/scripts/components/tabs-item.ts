@@ -2,8 +2,6 @@ import Tabs from "@dds/components";
 import { doId } from "../do-id";
 import { doElement } from "../do-element";
 
-declare const DDS: any;
-
 export const tabsItem = (tabInfo) => {
   const parentId = tabInfo.parentId;
   const optId = tabInfo.id || doId(`tab`);

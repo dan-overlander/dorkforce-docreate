@@ -4,8 +4,6 @@ import { doElement } from "../do-element";
 import { iconDef } from "./icon-def";
 import { addApi } from "../utils/add-api";
 
-declare const DDS: any;
-
 interface NotificationHTMLElement extends HTMLElement {
     hide: () => void;
     show: () => void;
